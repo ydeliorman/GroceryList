@@ -17,7 +17,6 @@ clearBtn.addEventListener("click", clearItems);
 // display items onload
 window.addEventListener("DOMContentLoaded", setupItems);
 
-// ****** FUNCTIONS **********
 function addItem(e) {
     e.preventDefault();
     const value = grocery.value
@@ -81,7 +80,6 @@ function displayAlert(text, action) {
     }, 1500)
 }
 
-// clear items
 function clearItems() {
     const items = document.querySelectorAll(".grocery-item");
     if (items.length > 0) {
@@ -90,12 +88,10 @@ function clearItems() {
         });
     }
     container.classList.remove("show-container");
-    displayAlert("empty list", "danger");
+    displayAlert("Please add a grocery", "danger");
     setBackToDefault();
     localStorage.removeItem("list");
 }
-
-// delete item
 
 function deleteItem(e) {
     const element = e.currentTarget.parentElement.parentElement;
@@ -122,7 +118,6 @@ function editItem(e) {
     grocery.value = editElement.innerHTML;
     editFlag = true;
     editID = element.dataset.id;
-    //
     submitBtn.textContent = "edit";
 }
 
